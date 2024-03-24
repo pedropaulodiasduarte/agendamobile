@@ -22,3 +22,18 @@ listaDeAlunos.setAdapter(new ArrayAdapter<>(
         //this - Neste contexto, "this" se refere à instância da classe atual, ou seja, à Activity em que o código está sendo executado. Ele é usado para fornecer o contexto da Activity para o ArrayAdapter
         //android.R.layout.simple_list_item_1: Este é o layout padrão fornecido pelo Android para exibir um único item em uma lista. Ele é usado para definir como cada item da lista será exibido na ListView. Aqui pode criar um layout, mas o Android já disponibiliza. Este argumento espera um resource do tipo int
         //alunos: Este é o array ou lista de dados que será exibido na ListView. O ArrayAdapter irá percorrer esse array e exibir cada item na ListView de acordo com o layout fornecido.
+
+>Identificar view por identificador - Vincular dados à um view
+ListView listaDeAlunos = findViewById(R.id.activity_main_list_view_alunos);
+
+>Dependência para floating action button
+implementation  ("com.android.support:design:28.0.0")
+//Havia usado, mas na biblioteca Android X não é mais necessário, pois já tem equivalente, por meio da dependência material
+
+<!-- android:src="@drawable/ic_add" -->
+
+>Descrição para botão, floating action button:
+android:contentDescription="@string/fab_adicionar_descricao" 
+//No xml do layout se adiciona o código dentro do botão. Em values/string.xml se adiciona algo como o seguinte:
+<string name="fab_adicionar_descricao">Adicionar</string>
+//Isto, é devido a referência do valor ser carregada pelo arquivo string.xml

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">My ApplicationAgenda</string>
+    <string name="fab_adicionar_descricao">Adicionar Botão</string>
 </resources>

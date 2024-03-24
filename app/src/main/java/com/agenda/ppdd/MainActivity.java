@@ -24,7 +24,7 @@ public class MainActivity extends Activity {
         //Define um layout para a view
 
         List<String> alunos = new ArrayList<>(
-                Arrays.asList("Pedro Paulo", "Ivanilce", "Jânio", "Kelly"));
+                Arrays.asList("Pedro Paulo", "Ivanilce", "Jânio", "Kelly", "Igor"));
         //se cria uma lista, cujo sua implementação é uma array list
         //Arrays.asList        : Por não saber qual fonte de dados concreta,  se utiliza está lista dinâmica
 
