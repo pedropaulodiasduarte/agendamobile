@@ -26,11 +26,45 @@ listaDeAlunos.setAdapter(new ArrayAdapter<>(
 >Identificar view por identificador - Vincular dados à um view
 ListView listaDeAlunos = findViewById(R.id.activity_main_list_view_alunos);
 
+Arquivo 
+
 >Dependência para floating action button
 implementation  ("com.android.support:design:28.0.0")
 //Havia usado, mas na biblioteca Android X não é mais necessário, pois já tem equivalente, por meio da dependência material
 
-<!-- android:src="@drawable/ic_add" -->
+Arquivo de layout:
+
+Aqui se usa namespace android e app
+
+>XMLNS 
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+//xmlns é um namespace que define como os atributos e elementos do xml se comportará quando antes do atributo tiver "android:";
+
+>Altura e largura, atributos de ocupação, medidas na tela:
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+width: largura
+height: altura
+match_parent: Atingir o tamanho total do pai
+
+>Floating Action Button
+.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdicionar"
+        //identificador do fab
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        //wrap_content: tamanho é definido de acordo o conteúdo dentro do componente
+        android:layout_alignParentBottom="true"
+        //Botão fica na parte inferior da tela. Pode se usar "top" para fica superior
+        android:layout_alignParentTop="true"
+        android:layout_margin="16dp" 
+        /*Usar dp no lugar de px. DP: Densidade por pixel, se adequa melhor nos dispositivos por causa da variedade de tamanhos de tela. O margin, por padrões de design definido na biblioteca material, se deixa 16dp; Automaticamente, ele se posiciona 16dp em relação ao lado direito e a parte inferior; */
+        android:contentDescription="@string/fab_adicionar_descricao" 
+        //Adiciona descrição para leitores de tela ao botão
+        app:fabSize="normal"/>
+        //Define tamanho do fab, tendo como atributo: mini, normal e auto. Auto = automático
+/*No fab, não precisa usar o atributo: android:layout_width="wrap_content" e android:layout_height="wrap_content", as vezes melhor usar fabSize*/
+
 
 >Descrição para botão, floating action button:
 android:contentDescription="@string/fab_adicionar_descricao" 
