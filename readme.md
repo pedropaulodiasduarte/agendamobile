@@ -47,6 +47,16 @@ width: largura
 height: altura
 match_parent: Atingir o tamanho total do pai
 
+
+    <ListView
+        android:id="@+id/activity_main_list_view_alunos"
+        android:layout_width="match_parent"
+        //Cresce conforme o tamanho do objeto pai, devido usar match_parent
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+
 >Floating Action Button
 .google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdicionar"
@@ -59,6 +69,10 @@ match_parent: Atingir o tamanho total do pai
         android:layout_alignParentTop="true"
         android:layout_margin="16dp" 
         /*Usar dp no lugar de px. DP: Densidade por pixel, se adequa melhor nos dispositivos por causa da variedade de tamanhos de tela. O margin, por padrões de design definido na biblioteca material, se deixa 16dp; Automaticamente, ele se posiciona 16dp em relação ao lado direito e a parte inferior; */
+            android:clickable="true"
+            //Dá efeito de ondas ao clicar no botão
+android:focusable="true"
+//Emite visualmente um focu quando navega via teclado
         android:contentDescription="@string/fab_adicionar_descricao" 
         //Adiciona descrição para leitores de tela ao botão
         app:fabSize="normal"/>
