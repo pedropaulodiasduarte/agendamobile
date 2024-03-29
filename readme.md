@@ -61,6 +61,8 @@ match_parent: Atingir o tamanho total do pai
 .google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabAdicionar"
         //identificador do fab
+        android:src="@drawable/ic_action_novo_aluno"
+        //Atributo para adicionar ícone
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         //wrap_content: tamanho é definido de acordo o conteúdo dentro do componente
