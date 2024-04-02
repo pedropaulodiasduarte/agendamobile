@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">My ApplicationAgenda</string>
-    <string name="fab_adicionar_descricao">Adicionar Botão</string>
+    <string name="app_name">Agenda</string>
+    <string name="fab_adicionar_descricao">Adicionar Contato</string>
+    <string name="title_activity_form">FormActivity</string>
+    <string name="title_activity_forms">FormsActivity</string>
+    <string name="title_activity_new_contact">NewContactActivity</string>
 </resources>

@@ -9,6 +9,8 @@ Comentários:
 
 Arquivo: activity.main.java
 
+Em vez de usar classe Activity, trocou para AppCompatActivity, para adicionar o app bar
+
 listaDeAlunos.setAdapter(new ArrayAdapter<>(
         this,
         android.R.layout.simple_list_item_1,

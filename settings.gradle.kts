@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "My ApplicationAgenda"
+rootProject.name = "Agenda"
 include(":app")
