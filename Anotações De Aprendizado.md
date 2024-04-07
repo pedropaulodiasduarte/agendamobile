@@ -1,3 +1,6 @@
+Criei empty view activity posteriormente, para tela de formulário
+Aqui usei empty view activity, que criou também o arquivo xml de layout;
+
 Comentários de Códigos:
 
 
