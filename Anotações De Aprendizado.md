@@ -19,8 +19,8 @@ listaDeAlunos.setAdapter(new ArrayAdapter<>(
         //O Android Framework, para facilitar disponibiliza o arrayAdapter que é uma classe e sua implementação é mais simples
         //arrayAdapterencaminha os argumentos via construtor e vincula no listView
         //<>é para indicar o  diamond operator, o tipo genérico éde dados  automaticamente inferido conforme array
-        //this - Neste contexto, "this" se refere à instância da classe atual, ou seja, à Activity em que o código está sendo executado. Ele é usado para fornecer o contexto da Activity para o ArrayAdapter
-        //android.R.layout.simple_list_item_1: Este é o layout padrão fornecido pelo Android para exibir um único item em uma lista. Ele é usado para definir como cada item da lista será exibido na ListView. Aqui pode criar um layout, mas o Android já disponibiliza. Este argumento espera um resource do tipo int
+//this - Neste con                      o, "this" se refere à instância da classe atual, ou seja, à Activity em que o código está sendo executado. Ele é usado para fornecer o contexto da Activity para o ArrayAdapter
+        //android.R.    t.simple_list_item_1: Este é o layout padrão fornecido pelo Android para exibir um único item em uma lista. Ele é usado para definir como cada item da lista será exibido na ListView. Aqui pode criar um layout, mas o Android já disponibiliza. Este argumento espera um resource do tipo int
         //alunos: Este é o array ou lista de dados que será exibido na ListView. O ArrayAdapter irá percorrer esse array e exibir cada item na ListView de acordo com o layout fornecido.
 
 >Identificar view por identificador - Vincular dados à um view
@@ -34,6 +34,9 @@ implementation  ("com.android.support:design:28.0.0")
 
 Arquivo de layout:
 
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+//tipo de layout, moderno
+
 Aqui se usa namespace android e app
 
 >XMLNS 
@@ -41,6 +44,11 @@ Aqui se usa namespace android e app
 //xmlns é um namespace que define como os atributos e elementos do xml se comportará quando antes do atributo tiver "android:";
 
 >Altura e largura, atributos de ocupação, medidas na tela:
+
+    android:orientation="vertical"  <!-- Define se o layout será vertical ou horizontal -->
+    android:gravity="center"       <!-- Centraliza o conteúdo dentro do LinearLayout -->
+    android:padding="16dp">        <!-- Adiciona um padding ao redor do LinearLayout -->
+
 android:layout_width="match_parent"
 android:layout_height="match_parent">
 width: largura
