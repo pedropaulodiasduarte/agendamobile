@@ -2,14 +2,15 @@ package com.agenda.ppdd.activity.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText; // Importar EditText
-import android.widget.Toast;
 
 import com.agenda.ppdd.R;
-import com.agenda.ppdd.model.Aluno;
+import com.agenda.ppdd.dao.PessoaDAO;
+import com.agenda.ppdd.model.Pessoa;
 
 public class FormsActivity extends AppCompatActivity {
     private Button btSalvar;
@@ -21,6 +22,7 @@ public class FormsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forms);
+        setTitle("Adicionar Contato");
 
         btSalvar = findViewById(R.id.activity_forms_bt_salvar);
         etNome = findViewById(R.id.activity_forms_et_nome);
@@ -34,8 +36,14 @@ public class FormsActivity extends AppCompatActivity {
                 String telefone = etTelefone.getText().toString(); // Obter o texto do campo Telefone
                 String email = etEmail.getText().toString(); // Obter o texto do campo Email
 
-                Aluno aluno = new Aluno(nome, telefone, email);
-                Toast.makeText(getApplicationContext(), "Aluno: " + aluno.getNome(), Toast.LENGTH_LONG).show();
+                Pessoa pessoa = new Pessoa(nome, telefone, email);
+                //Instancia a classe Pessoa, envia via construtor dados da pessoa
+
+                PessoaDAO dao = new PessoaDAO();
+                //Se cria classe, responsável por salvar dados
+                dao.salva(pessoa);
+
+                startActivity(new Intent(FormsActivity.this, ListActivity.class));
 
             }
         });

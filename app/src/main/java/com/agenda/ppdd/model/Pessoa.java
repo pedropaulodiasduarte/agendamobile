@@ -1,13 +1,11 @@
 package com.agenda.ppdd.model;
 
-import android.widget.EditText;
-
-public class Aluno {
+public class Pessoa {
     private String nome;
     private String telefone;
     private String email;
 
-    public Aluno(String nome, String telefone, String email) {
+    public Pessoa(String nome, String telefone, String email) {
         this.nome=nome;
         this.email=email;
         this.telefone=telefone;
