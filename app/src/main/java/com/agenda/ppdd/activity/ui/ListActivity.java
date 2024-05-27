@@ -16,6 +16,10 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListActivity extends AppCompatActivity {
     private FloatingActionButton fabNovoContato;
+    private ListView lista;
+    private PessoaDAO dao = new PessoaDAO();
+    //Instanciada para exibir dados salvo na lista
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         //anotação @Nullable está sendo utilizada para indicar que o parâmetro savedInstanceState do método onCreate pode ser nulo.
@@ -32,10 +36,8 @@ public class ListActivity extends AppCompatActivity {
         setTitle("AGENDA");
         //Adiciona título no app bar
 
-        PessoaDAO dao = new PessoaDAO();
-        //Instanciada para exibir dados salvo na lista
 
-        ListView lista = findViewById(R.id.activity_list_list_view_contatos);
+        lista = findViewById(R.id.activity_list_list_view_contatos);
 
         lista.setAdapter(new ArrayAdapter<>(
                 this,
@@ -44,9 +46,13 @@ public class ListActivity extends AppCompatActivity {
         fabNovoContato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ListActivity.this, FormsActivity.class));
+                abrirFormsActivity();
             }
         });
-
     }
+
+    private void abrirFormsActivity() {
+        startActivity(new Intent(ListActivity.this, FormsActivity.class));
+    }
+
 }

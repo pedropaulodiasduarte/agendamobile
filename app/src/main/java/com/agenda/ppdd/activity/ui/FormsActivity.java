@@ -1,5 +1,6 @@
 package com.agenda.ppdd.activity.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -17,6 +18,8 @@ public class FormsActivity extends AppCompatActivity {
     private EditText etNome;
     private EditText etEmail;
     private EditText etTelefone;
+    private Pessoa pessoa;
+    private PessoaDAO dao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,28 +27,47 @@ public class FormsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forms);
         setTitle("Adicionar Contato");
 
+        configurarElementos();
+
+        salvarContato();
+    }
+
+    private void salvarContato() {
+        btSalvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                criarPessoa();
+
+                chamarListActivity();
+
+            }
+        });
+    }
+
+    private void configurarElementos() {
         btSalvar = findViewById(R.id.activity_forms_bt_salvar);
         etNome = findViewById(R.id.activity_forms_et_nome);
         etTelefone = findViewById(R.id.activity_forms_et_telefone);
         etEmail = findViewById(R.id.activity_forms_et_email);
+    }
 
-        btSalvar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String nome = etNome.getText().toString(); // Obter o texto do campo Nome
-                String telefone = etTelefone.getText().toString(); // Obter o texto do campo Telefone
-                String email = etEmail.getText().toString(); // Obter o texto do campo Email
+    private void chamarListActivity() {
+        startActivity(new Intent(FormsActivity.this, ListActivity.class));
+        finish();
+        //Finaliza activity, para não criar activity em pilhas ou task
+    }
 
-                Pessoa pessoa = new Pessoa(nome, telefone, email);
-                //Instancia a classe Pessoa, envia via construtor dados da pessoa
+    @NonNull
+    private void criarPessoa() {
+        String nome = etNome.getText().toString(); // Obter o texto do campo Nome
+        String telefone = etTelefone.getText().toString(); // Obter o texto do campo Telefone
+        String email = etEmail.getText().toString(); // Obter o texto do campo Email
 
-                PessoaDAO dao = new PessoaDAO();
-                //Se cria classe, responsável por salvar dados
-                dao.salva(pessoa);
+        pessoa = new Pessoa(nome, telefone, email);
+        //Instancia a classe Pessoa, envia via construtor dados da pessoa
 
-                startActivity(new Intent(FormsActivity.this, ListActivity.class));
-
-            }
-        });
+        dao = new PessoaDAO();
+        //Cria um novo objeto para salvar
+        dao.salva(pessoa);
     }
 }
