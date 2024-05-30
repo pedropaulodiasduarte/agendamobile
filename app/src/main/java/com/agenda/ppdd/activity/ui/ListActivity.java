@@ -20,6 +20,7 @@ public class ListActivity extends AppCompatActivity {
     private PessoaDAO dao = new PessoaDAO();
     //Instanciada para exibir dados salvo na lista
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         //anotação @Nullable está sendo utilizada para indicar que o parâmetro savedInstanceState do método onCreate pode ser nulo.

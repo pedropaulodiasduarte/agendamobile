@@ -26,9 +26,7 @@ public class FormsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forms);
         setTitle("Adicionar Contato");
-
         configurarElementos();
-
         salvarContato();
     }
 
@@ -37,9 +35,7 @@ public class FormsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 criarPessoa();
-
                 chamarListActivity();
-
             }
         });
     }
@@ -62,12 +58,13 @@ public class FormsActivity extends AppCompatActivity {
         String nome = etNome.getText().toString(); // Obter o texto do campo Nome
         String telefone = etTelefone.getText().toString(); // Obter o texto do campo Telefone
         String email = etEmail.getText().toString(); // Obter o texto do campo Email
-
         pessoa = new Pessoa(nome, telefone, email);
         //Instancia a classe Pessoa, envia via construtor dados da pessoa
+        salvarPessoa();
+    }
 
+    private void salvarPessoa() {
         dao = new PessoaDAO();
-        //Cria um novo objeto para salvar
         dao.salva(pessoa);
     }
 }
