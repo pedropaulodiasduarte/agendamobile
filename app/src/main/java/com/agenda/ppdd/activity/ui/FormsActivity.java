@@ -14,6 +14,7 @@ import com.agenda.ppdd.dao.PessoaDAO;
 import com.agenda.ppdd.model.Pessoa;
 
 public class FormsActivity extends AppCompatActivity {
+    public static final String TITULO_APPBAR = "Novo Contato";
     private Button btSalvar;
     private EditText etNome;
     private EditText etEmail;
@@ -25,7 +26,7 @@ public class FormsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forms);
-        setTitle("Adicionar Contato");
+        setTitle(TITULO_APPBAR);
         configurarElementos();
         salvarContato();
     }
@@ -60,11 +61,6 @@ public class FormsActivity extends AppCompatActivity {
         String email = etEmail.getText().toString(); // Obter o texto do campo Email
         pessoa = new Pessoa(nome, telefone, email);
         //Instancia a classe Pessoa, envia via construtor dados da pessoa
-        salvarPessoa();
-    }
 
-    private void salvarPessoa() {
-        dao = new PessoaDAO();
-        dao.salva(pessoa);
     }
 }

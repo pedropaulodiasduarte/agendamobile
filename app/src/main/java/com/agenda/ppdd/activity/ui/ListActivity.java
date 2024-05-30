@@ -14,12 +14,12 @@ import com.agenda.ppdd.dao.PessoaDAO;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
-public class ListActivity extends AppCompatActivity {
-    private FloatingActionButton fabNovoContato;
-    private ListView lista;
-    private PessoaDAO dao = new PessoaDAO();
-    //Instanciada para exibir dados salvo na lista
+public class ListActivity extends AppCompatActivity{
 
+    private ListView lista;
+    private final PessoaDAO dao = new PessoaDAO();
+    //Instanciada para exibir dados salvo na lista
+    public static String TITULO_APPBAR="Lista de Contatos";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,28 +28,34 @@ public class ListActivity extends AppCompatActivity {
         //Bundle é uma classe que permite troca de informações entre activity ou a partir do cíclo de vida
         super.onCreate(savedInstanceState);
         //Quando se chama o onCreate, também se chama o método superActivity, que é da classe mãe e é responsável por resolver problemas para o Android
-
         setContentView(R.layout.activity_list);
         //Define um layout para a view
+        setTitle(TITULO_APPBAR); //Adiciona título no app bar
+        criarNovoContato();
+    }
 
-        fabNovoContato = findViewById(R.id.activity_list_fab_novo_contato);
+    @Override
+    protected void onResume (){
+        super.onResume();
+        exibirContatoSalvo();
+    }
 
-        setTitle("AGENDA");
-        //Adiciona título no app bar
-
-
-        lista = findViewById(R.id.activity_list_list_view_contatos);
-
-        lista.setAdapter(new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                dao.retornaSalvo()));
+    private void criarNovoContato() {
+        FloatingActionButton fabNovoContato = findViewById(R.id.activity_list_fab_novo_contato);
         fabNovoContato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 abrirFormsActivity();
             }
         });
+    }
+
+    private void exibirContatoSalvo() {
+        lista = findViewById(R.id.activity_list_list_view_contatos);
+        lista.setAdapter(new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_list_item_1,
+                dao.retornaSalvo()));
     }
 
     private void abrirFormsActivity() {
